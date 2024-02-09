@@ -1,0 +1,206 @@
+%Basic constructions like size and language :
+\documentclass[12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{CJKutf8} %Chinese, support of begin cjk end cjk
+\usepackage[T1]{fontenc} %French
+\usepackage[letterpaper, margin=1.27cm]{geometry}
+\usepackage{subfiles} 
+\usepackage{times} %Times New Roman font
+
+%Make title, table of contents
+\usepackage{hyperref} %necessay for maketitle to work
+\usepackage{datetime2} %for the dtmnow command
+
+\title{Inférence statistique devoir 2 (date limite : le jeudi 15 février)}
+\author{ Wen, Zehai ; Li, Qingyue}
+\date{\DTMnow}
+
+%Page style, header and footer:
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{
+Wen, Zehai ; Li, Qingyue $\tab[0.3cm]$ 20266957 ; 20269849 $\tab[0.3cm]$
+STT 6700 Inférence statistique}
+\rhead{\today}
+
+\rfoot{}
+\cfoot{\thepage}
+
+%Graphics and figures:
+\usepackage{graphicx} 
+\usepackage{float} %both graphicx and float packages are necessary for begin figure
+\usepackage{caption} %necessary for any kind of caption
+\usepackage{subcaption} %necessary for subfigure
+
+%Tabular:
+\usepackage{multirow}
+
+%Coding:
+\usepackage{listings}
+\usepackage{color}
+\usepackage{textgreek} %for greek
+
+\lstset{literate=%
+  {é}{{\'e}}{1}%
+  {è}{{\`e}}{1}%
+  {à}{{\`a }}{1}%
+  {ç}{{\c{c}}}{1}%
+  {œ}{{\oe}}{1}%
+  {ù}{{\`u}}{1}%
+  {É}{{\'E}}{1}%
+  {È}{{\`E}}{1}%
+  {À}{{\`A}}{1}%
+  {Ç}{{\c{C}}}{1}%
+  {Œ}{{\OE}}{1}%
+  {Ê}{{\^E}}{1}%
+  {ê}{{\^e}}{1}%
+  {î}{{\^i}}{1}%
+  {ô}{{\^o}}{1}%
+  {û}{{\^u}}{1}%
+  {ä}{{\"{a}}}1
+  {ë}{{\"{e}}}1
+  {ï}{{\"{i}}}1
+  {ö}{{\"{o}}}1
+  {ü}{{\"{u}}}1
+  {û}{{\^{u}}}1
+  {â}{{\^{a}}}1
+  {Â}{{\^{A}}}1
+  {Î}{{\^{I}}}1
+  {α}{{\textalpha}}1
+  {β}{{\textbeta}}1
+  {γ}{{\textgamma}}1
+  {δ}{{\textdelta}}1
+  {ε}{{\textepsilon}}1
+  {ζ}{{\textzeta}}1
+  {η}{{\texteta}}1
+  {θ}{{\texttheta}}1
+  {ι}{{\textiota}}1
+  {κ}{{\textkappa}}1
+  {λ}{{\textlambda}}1
+  {μ}{{\textmu}}1
+  {ν}{{\textnu}}1
+  {ξ}{{\textxi}}1
+  {ο}{{\textomikron}}1
+  {π}{{\textpi}}1
+  {ρ}{{\textrho}}1
+  {σ}{{\textsigma}}1
+  {τ}{{\texttau}}1
+  {υ}{{\textupsilon}}1
+  {φ}{{\textphi}}1
+  {χ}{{\textchi}}1
+  {ψ}{{\textpsi}}1
+  {ω}{{\textomega}}1
+  {Α}{{\textAlpha}}1
+  {Β}{{\textBeta}}1
+  {Γ}{{\textGamma}}1
+  {Δ}{{\textDelta}}1
+  {Ε}{{\textEpsilon}}1
+  {Ζ}{{\textZeta}}1
+  {Η}{{\textEta}}1
+  {Θ}{{\textTheta}}1
+  {Ι}{{\textIota}}1
+  {Κ}{{\textKappa}}1
+  {Λ}{{\textLambda}}1
+  {Μ}{{\textMu}}1
+  {Ν}{{\textNu}}1
+  {Ξ}{{\textXi}}1
+  {Ο}{{\textOmikron}}1
+  {Π}{{\textPi}}1
+  {Ρ}{{\textRho}}1
+  {Σ}{{\textSigma}}1
+  {Τ}{{\textTau}}1
+  {Υ}{{\textUpsilon}}1
+  {Φ}{{\textPhi}}1
+  {Χ}{{\textChi}}1
+  {Ψ}{{\textPsi}}1
+  {Ω}{{\textOmega}}1
+  {ς}{{\textvarsigma}}1
+  {φ}{{\straightphi}}1
+  {θ}{{\scripttheta}}1
+  {ε}{{\epsilon}}1
+  {ά}{{\'\textalpha}}1
+  {έ}{{\'\textepsilon}}1
+  {ί}{{\'\textiota}}1
+  {ή}{{\'\texteta}}1
+  {ό}{{\'\textomikron}}1
+  {ύ}{{\'\textupsilon}}1
+  {ώ}{{\'\textomega}}1
+} 
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+%Graph Theory:
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+%Commands :
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\renewcommand{\bibname}{Références}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%Mathematical packages%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Basic utilities:
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{physics} %for vector symbol
+
+%Commands :
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\newcommand{\bracket}[1]{\left ( #1 \right )}
+\newcommand{\curly}[1]{\left \{ #1 \right \} }
+\newcommand{\squared}[1]{\left [ #1 \right ]}
+
+\usepackage{amsthm}  %Theorem styles
+\renewcommand*{\proofname}{Démonstration}
+\theoremstyle{plain}
+\newtheorem{theorem}{Théorème}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Définition} 
+\newtheorem{definitions}[theorem]{Définitions} 
+\newtheorem{example}[theorem]{Exemple}
+\newtheorem{examples}[theorem]{Exemples}
+\newtheorem{remark}[theorem]{Remarque}
+\newtheorem{remarks}[theorem]{Remarques}
+\newtheorem{lemma}[theorem]{Lemme}
+\newtheorem{corollary}[theorem]{Corollaire}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+\maketitle 
+
+\setcounter{tocdepth}{0}
+\setcounter{page}{1}
+
+\subfile{exercice_1}
+\subfile{exercice_2}
+\subfile{exercice_3}
+
+\end{CJK*}
+\end{document}
