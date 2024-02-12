@@ -15,7 +15,53 @@ Proposez un autre estimateur de $\theta$ qui améliore cet écart quadratique mo
 Répétez les mêmes tâches utilisant $\{Y_i\}_{i=1}^n$ et pas $\{X_i\}_{i=1}^n$.
 
 \paragraph{Solution}
-à faire
+La méthode des moments consiste à égaler les moments théoriques aux moments empiriques calculés à partir de l'échantillon. Le premier moment (moyenne) d'une variable aléatoire $X$ avec densité $f(x | \theta)$ est donné par l'espérance mathématique $E[X]$.
+
+Considérons la fonction de densité de $X$ donnée par 
+\begin{equation}
+f(x | \theta) = \frac{1 + \theta x}{2}, \quad \text{pour } x \in [-1, 1]
+\end{equation}
+L'espérance de $X$,$E[X]$, s'obtient en intégrant le produit de $X$ par la densité de probabilité sur l'intervalle de définition de $X$, ce qui nous donne :
+\begin{equation}
+E[X] = \int_{-1}^{1} x \cdot \frac{1 + \theta x}{2} \, dx
+\end{equation}
+Cette intégration aboutit à :
+\begin{equation}
+E[X] = \frac{\theta}{3} 
+\end{equation}
+
+\begin{equation}
+E[X^2] = \frac{\theta}{4} 
+\end{equation}
+
+En utilisant la méthode des moments, nous égalisons le moment théorique, ici l'espérance calculée $E[X]$, avec le moment empirique, la moyenne d'échantillon $\bar{X}$, ce qui nous donne l'équation :
+\begin{equation}
+\bar{X} = \frac{\theta}{3}
+\end{equation}
+En résolvant cette équation pour $\theta$, nous obtenons l'estimateur de $\theta$ par la méthode des moments :
+\begin{equation}
+\hat{\theta}_{MM} = 3\bar{X}
+\end{equation}
+
+\begin{equation}
+\hat{\theta}_{MM} = 3\left(\frac{1}{n}\sum_{i=1}^{n}X_i\right)
+\end{equation}
+
+L'Écart Quadratique Moyen (EQM) d'un estimateur $\hat{\theta}$ est défini par :
+\begin{equation}
+EQM(\hat{\theta}) = E[(\hat{\theta} - \theta)^2].
+\end{equation}
+
+\begin{equation}
+E\left[\left(\frac{3}{n}\sum_{i=1}^{n}X_i - \theta\right)^2\right] = \frac{9}{n} E[X_1^2] + \frac{18}{n^2} \cdot \frac{n(n-1)}{2} \cdot E^2[X_1] + \theta^2 + 6\theta \cdot E[X_1]
+\end{equation}
+
+Nous procédons maintenant à la substitution de $E[X]$ et $E[X^2]$ dans notre expression précédente pour simplifier le calcul.
+
+\begin{equation}
+E\left[\left(\frac{3}{n}\sum_{i=1}^{n}X_i - \theta\right)^2\right] = \frac {\left(\frac{9}{2} + 8n \cdot \theta^2 - 2\theta^2\right)}{2n}
+\end{equation}
+
 
 \end{CJK*}
 \end{document}
