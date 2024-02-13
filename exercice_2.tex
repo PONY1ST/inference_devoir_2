@@ -9,7 +9,16 @@ On a un échantillon de taille $2$ de $\text{Cauchy}(\theta, 1)$, où le centre 
 Estimer $\theta$ selon la méthode du maximum de vraisemblance. 
 
 \paragraph{Solution}
+La fonction de vraisemblance pour deux variables aléatoires indépendantes $X_1, X_2$ est :
+\begin{equation*}
+L(\theta | x_1, x_2) = f(x_1 | \theta) \cdot f(x_2 | \theta) = \left( \frac{1}{\pi} \frac{1}{1 + (x_1 - \theta)^2} \right) \left( \frac{1}{\pi} \frac{1}{1 + (x_2 - \theta)^2} \right)
+\end{equation*}
 
-à faire
+Introduisons le nouveau paramètre $\eta = \theta - \frac{x_1 + x_2}{2}$ et $y = \frac{x_1}{2} - \frac{x_2}{2} $, ce qui implique :
+
+En remplaçant $\theta$ par $\eta$ dans la fonction de vraisemblance :
+\begin{equation*}
+L(\eta) =\frac{1}{\pi^2} \cdot \frac{1}{1 + (y - \eta)^2} \cdot \frac{1}{1 + (y + \eta)^2}
+\end{equation*}
 \end{CJK*}
 \end{document}
