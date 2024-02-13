@@ -16,7 +16,29 @@ Montrez que l'estimateur de maximum de vraisemblance de $\theta$ existe et se tr
 dans l'intervalle $[x_{(1)}, x_{(n)}]$.
 
 \paragraph{Solution}
+La fonction de vraisemblance est définie par
+$L(\theta) = \prod_{i=1}^{n} g(|x_i - \theta|)$.
 
-à faire
+Premièrement, examinons la continuité de $L(\theta)$. Étant donné que $g$ est continue et décroissante,
+pour tout $x_i$ et $\theta$, la fonction $g(|x_i - \theta|)$ est également continue par rapport à $\theta$.
+Par conséquent, comme $L(\theta)$ est le produit des fonctions continues $g(|x_i - \theta|)$ pour $i$
+allant de 1 à $n$, $L(\theta)$ est elle-même continue par rapport à $\theta$.
+
+Considérer $\theta$ dans l'intervalle compact $[x_{(1)}, x_{(n)}]$ est justifié par le fait 
+que toutes les observations $x_i$ se situent dans cet intervalle. La décroissance de la 
+fonction $g$ implique que la valeur de $L(\theta)$ diminue hors de cet intervalle, 
+rendant l'estimation de $\theta$ optimale uniquement à l'intérieur de $[x_{(1)}, x_{(n)}]$.
+
+La continuité de $L(\theta)$ sur cet intervalle compact assure, selon le théorème des 
+valeurs extrêmes, que $L(\theta)$ atteint son maximum dans $[x_{(1)}, x_{(n)}]$. 
+Cela confirme l'existence de l'estimateur du maximum de vraisemblance dans cet intervalle,
+exploitant ainsi directement les propriétés des ensembles compacts.
+
+En conclusion, la combinaison de la continuité de $L(\theta)$ et des propriétés de l'intervalle compact
+$[x_{(1)}, x_{(n)}]$ permet d'affirmer que l'estimation du maximum de vraisemblance existe et est
+confinée à l'intérieur de cet intervalle. Cela illustre l'importance de la continuité et des intervalles
+compacts dans la détermination de l'estimation du maximum de vraisemblance, tout en mettant en évidence
+la propriété de maximisation de la fonction de vraisemblance dans l'intervalle donné.
+
 \end{CJK*}
 \end{document}
