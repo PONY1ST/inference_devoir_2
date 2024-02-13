@@ -30,8 +30,9 @@ E[X_1] = \frac{\theta}{3}
 E[X_1^2] = \frac{1}{3} 
 \end{equation*}
 
-En utilisant la méthode des moments, on égalise le moment théorique, ici l'espérance calculée $E[X_1]$, avec le moment empirique,
-la moyenne d'échantillon $\bar{X}$, ce qui nous donne l'équation :
+En utilisant la méthode des moments, on égalise le moment théorique, 
+ici l'espérance calculée $E[X_1]$, 
+avec le moment empirique, la moyenne d'échantillon $\bar{X}$, ce qui nous donne l'équation :
 \begin{equation*}
 \bar{X} = \frac{\theta}{3}
 \end{equation*}
@@ -55,22 +56,14 @@ On procède maintenant à la substitution de $E[X_1]$ et $E[X_1^2]$ dans notre e
 EQM(\hat{\theta_x}) = \frac{3 - \theta^2}{n}
 \end{equation*}
 
-$Y_i$ est une fonction indicatrice pour chaque $i$, définie par:
-\begin{equation*}
-Y_i = \begin{cases} 
-1 & \text{si } X_i \in [0,1] \\
-0 & \text{sinon} 
-\end{cases}
-\end{equation*}
-Cela indique que $Y_i$ mesure la présence de $X_i$ dans l'intervalle $[0,1]$.
 
 La contribution attendue de $X_1$ sous cette condition, ou l'espérance de $Y_1$, est calculée comme suit:
 \begin{equation*}
 E[Y_1] = \int_{0}^{1} \frac{1 + \theta x_1}{2} dx_1 = \frac{1}{2} + \frac{\theta}{4}
 \end{equation*}
 
-Comme $Y_1$ est une fonction indicatrice dont les valeurs peuvent uniquement être $0$ ou $1$, 
-la valeur de $Y_1^2$ est en réalité identique à celle de $Y_1$. Cela est dû au fait que $1^2 = 1$ et $0^2 = 0$. Par conséquent, nous avons $E[Y_1^2] = E[Y_1]$.
+Comme $Y_1$ est une fonction indicatrice dont les valeurs peuvent uniquement être $0$ ou $1$, la valeur de $Y_1^2$ est en réalité identique à celle de $Y_1$. 
+Cela est dû au fait que $1^2 = 1$ et $0^2 = 0$. Par conséquent, nous avons $E[Y_1^2] = E[Y_1]$.
 
 Par la méthode des moments, l'alignement de l'espérance théorique $E[Y_1]$ avec la moyenne empirique des observations de $Y_1$ donne :
 \begin{equation*}
@@ -91,7 +84,7 @@ EQM(\hat{\theta_y}) = E[(\hat{\theta_y} - \theta)^2] = E\left[16\left(\frac{1}{n
 On procède maintenant à la substitution de $E[Y_1]$ et $E[Y_1^2]$ dans notre expression précédente pour simplifier
 le calcul：
 \begin{equation*}
-EQM(\hat{\theta_y}) = 
+EQM(\hat{\theta_y}) = \frac{4 - \theta^2}{n}
 \end{equation*}
 
 Considérant l'estimateur \(\hat{\theta}_x = 3\left(\frac{1}{n}\sum_{i=1}^{n}X_i\right)\), avec \(X_i \in [-1, 1]\), 
@@ -103,35 +96,17 @@ au-delà des valeurs réelles possibles de $\theta$.
 
 Définissons la valeur ajustée $\hat{\theta}_{x}^{adj} $ comme suit :
 \begin{equation*}
-\hat{\theta}_{x}^{adj} = \max(\min(\hat{\theta}_x, 1), -1)
+\hat{\theta}_{x}^{adj} = \hat{\theta}_x \cdot I(|\hat{\theta}_x| \leq 1) + 1 \cdot I(\hat{\theta}_x > 1) - 1 \cdot I(\hat{\theta}_x < -1)
 \end{equation*}
-Cette formule, par l'application d'abord du minimum entre $ \hat{\theta}_x $ et 1, 
-puis du maximum entre ce résultat et -1, 
-garantit que quelle que soit la valeur initiale de $ \hat{\theta}_x $, 
-la valeur ajustée $\hat{\theta}_{x}^{adj} $ restera toujours dans l'intervalle autorisé $[-1, 1] $.
 
-Examinons les différents cas où cette méthode d'ajustement s'avère nécessaire :
+On découvre que, grâce à l'ajustement post-traitement, 
+l'erreur quadratique moyenne de l'estimateur ajusté est réduite par rapport à l'estimateur initial. 
+Cela peut être exprimé mathématiquement comme suit :
+\begin{equation*}
+E\left[(\hat{\theta}_{x}^{adj} - \theta)^2\right] \leq E\left[(\hat{\theta}_x - \theta)^2\right],
+\end{equation*}
+ce qui indique que cette méthode réussit à améliorer les écarts quadratiques moyens.
 
-\textit{Cas 1} : Si $ \hat{\theta}_x > 1 $, 
-cela signifie que la valeur estimée dépasse la limite supérieure de l'intervalle autorisé. Dans ce cas, 
-l'ajustement est réalisé en fixant $ \hat{\theta}_{x}^{adj} $ à 1, la limite supérieure, 
-pour assurer que la valeur ajustée ne dépasse pas cette limite.
-
-\textit{Cas 2} : Si $ \hat{\theta}_x < -1 $, la valeur estimée est inférieure à la limite inférieure de l'intervalle autorisé.
-L'ajustement consiste alors à définir $ \hat{\theta}_{x}^{adj} $ à -1, 
-garantissant ainsi que la valeur ajustée ne tombe pas en dessous de cette limite.
-
-\textit{Cas 3} : Lorsque $ \hat{\theta}_x $ se trouve déjà dans l'intervalle $[-1, 1]$, 
-aucun ajustement n'est nécessaire, et la valeur de \( \hat{\theta}_{x}^{adj} \) est simplement égale à $\hat{\theta}_x$, 
-reflétant fidèlement l'estimation initiale sans modification.
-
-En résumé, cette approche d'ajustement garantit que les estimations demeurent toujours dans les bornes définies par l'espace paramétrique,
-assurant ainsi la cohérence et la validité des valeurs estimées par rapport aux limites prédéfinies du modèle.
-
-
-
-\end{CJK*}
-\end{document}
 
 \end{CJK*}
 \end{document}
