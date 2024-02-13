@@ -15,53 +15,123 @@ Proposez un autre estimateur de $\theta$ qui améliore cet écart quadratique mo
 Répétez les mêmes tâches utilisant $\{Y_i\}_{i=1}^n$ et pas $\{X_i\}_{i=1}^n$.
 
 \paragraph{Solution}
-La méthode des moments consiste à égaler les moments théoriques aux moments empiriques calculés à partir de l'échantillon. Le premier moment (moyenne) d'une variable aléatoire $X$ avec densité $f(x | \theta)$ est donné par l'espérance mathématique $E[X]$.
 
-Considérons la fonction de densité de $X$ donnée par 
-\begin{equation}
-f(x | \theta) = \frac{1 + \theta x}{2}, \quad \text{pour } x \in [-1, 1]
-\end{equation}
-L'espérance de $X$,$E[X]$, s'obtient en intégrant le produit de $X$ par la densité de probabilité sur l'intervalle de définition de $X$, ce qui nous donne :
-\begin{equation}
-E[X] = \int_{-1}^{1} x \cdot \frac{1 + \theta x}{2} \, dx
-\end{equation}
+L'espérance de $X_1$, $E[X_1]$, s'obtient en intégrant le produit de $X_1$ par la densité de probabilité sur l'intervalle de définition de $X_1$, ce qui nous donne :
+\begin{equation*}
+E[X_1] = \int_{-1}^{1} x_1 \cdot \frac{1 + \theta x_1}{2} \, dx_1
+\end{equation*}
+
 Cette intégration aboutit à :
-\begin{equation}
-E[X] = \frac{\theta}{3} 
-\end{equation}
+\begin{equation*}
+E[X_1] = \frac{\theta}{3} 
+\end{equation*}
 
-\begin{equation}
-E[X^2] = \frac{\theta}{4} 
-\end{equation}
+\begin{equation*}
+E[X_1^2] = \frac{1}{3} 
+\end{equation*}
 
-En utilisant la méthode des moments, nous égalisons le moment théorique, ici l'espérance calculée $E[X]$, avec le moment empirique, la moyenne d'échantillon $\bar{X}$, ce qui nous donne l'équation :
-\begin{equation}
+En utilisant la méthode des moments, on égalise le moment théorique, ici l'espérance calculée $E[X_1]$, avec le moment empirique,
+la moyenne d'échantillon $\bar{X}$, ce qui nous donne l'équation :
+\begin{equation*}
 \bar{X} = \frac{\theta}{3}
-\end{equation}
-En résolvant cette équation pour $\theta$, nous obtenons l'estimateur de $\theta$ par la méthode des moments :
-\begin{equation}
-\hat{\theta}_{MM} = 3\bar{X}
-\end{equation}
+\end{equation*}
+En résolvant cette équation pour $\theta$, nous obtenons l'estimateur de $\theta$ par la méthode des moments,$\hat{\theta_x}$ :
+\begin{equation*}
+\hat{\theta_x} = 3\bar{X}
+\end{equation*}
 
-\begin{equation}
-\hat{\theta}_{MM} = 3\left(\frac{1}{n}\sum_{i=1}^{n}X_i\right)
-\end{equation}
+\begin{equation*}
+\hat{\theta_x} = 3\left(\frac{1}{n}\sum_{i=1}^{n}X_i\right)
+\end{equation*}
 
-L'Écart Quadratique Moyen (EQM) d'un estimateur $\hat{\theta}$ est défini par :
-\begin{equation}
-EQM(\hat{\theta}) = E[(\hat{\theta} - \theta)^2].
-\end{equation}
+L'écart quadratique moyen  d'un estimateur $\hat{\theta_x}$ est défini par :
+\begin{equation*}
+EQM(\hat{\theta_x}) = E[(\hat{\theta_x} - \theta)^2] = E\left[9\left(\frac{1}{n}\sum_{i=1}^{n} X_i\right)^2 - 6\theta\left(\frac{1}{n}\sum_{i=1}^{n} X_i\right) + \theta^2\right]
+\end{equation*}
 
-\begin{equation}
-E\left[\left(\frac{3}{n}\sum_{i=1}^{n}X_i - \theta\right)^2\right] = \frac{9}{n} E[X_1^2] + \frac{18}{n^2} \cdot \frac{n(n-1)}{2} \cdot E^2[X_1] + \theta^2 + 6\theta \cdot E[X_1]
-\end{equation}
+On procède maintenant à la substitution de $E[X_1]$ et $E[X_1^2]$ dans notre expression précédente pour simplifier le calcul.
 
-Nous procédons maintenant à la substitution de $E[X]$ et $E[X^2]$ dans notre expression précédente pour simplifier le calcul.
+\begin{equation*}
+EQM(\hat{\theta_x}) = \frac{3 - \theta^2}{n}
+\end{equation*}
 
-\begin{equation}
-E\left[\left(\frac{3}{n}\sum_{i=1}^{n}X_i - \theta\right)^2\right] = \frac {\left(\frac{9}{2} + 8n \cdot \theta^2 - 2\theta^2\right)}{2n}
-\end{equation}
+$Y_i$ est une fonction indicatrice pour chaque $i$, définie par:
+\begin{equation*}
+Y_i = \begin{cases} 
+1 & \text{si } X_i \in [0,1] \\
+0 & \text{sinon} 
+\end{cases}
+\end{equation*}
+Cela indique que $Y_i$ mesure la présence de $X_i$ dans l'intervalle $[0,1]$.
 
+La contribution attendue de $X_1$ sous cette condition, ou l'espérance de $Y_1$, est calculée comme suit:
+\begin{equation*}
+E[Y_1] = \int_{0}^{1} \frac{1 + \theta x_1}{2} dx_1 = \frac{1}{2} + \frac{\theta}{4}
+\end{equation*}
+
+Comme $Y_1$ est une fonction indicatrice dont les valeurs peuvent uniquement être $0$ ou $1$, 
+la valeur de $Y_1^2$ est en réalité identique à celle de $Y_1$. Cela est dû au fait que $1^2 = 1$ et $0^2 = 0$. Par conséquent, nous avons $E[Y_1^2] = E[Y_1]$.
+
+Par la méthode des moments, l'alignement de l'espérance théorique $E[Y_1]$ avec la moyenne empirique des observations de $Y_1$ donne :
+\begin{equation*}
+E[Y_1] = \frac{1}{2} + \frac{\theta}{4} = \bar{Y} = \frac{1}{n}\sum_{i=1}^{n} Y_i.
+\end{equation*}
+
+Résoudre cette équation pour $\theta$, on introduis l'estimateur $\hat{\theta_y}$, qui est défini et obtenu par :
+\begin{equation*}
+\hat{\theta_y} = 4\left(\frac{1}{n}\sum_{i=1}^{n} Y_i\right) - 2,
+\end{equation*}
+offrant une estimation directe de $\theta$ basée sur la moyenne d'échantillon des $Y_i$.
+
+L'écart quadratique moyen  d'un estimateur $\hat{\theta_y}$ est défini par :
+\begin{equation*}
+EQM(\hat{\theta_y}) = E[(\hat{\theta_y} - \theta)^2] = E\left[16\left(\frac{1}{n}\sum_{i=1}^{n} Y_i\right)^2 - 8\left(\frac{1}{n}\sum_{i=1}^{n} Y_i\right)(2 + \theta) + (2 + \theta)^2\right]
+\end{equation*}
+
+On procède maintenant à la substitution de $E[Y_1]$ et $E[Y_1^2]$ dans notre expression précédente pour simplifier
+le calcul：
+\begin{equation*}
+EQM(\hat{\theta_y}) = 
+\end{equation*}
+
+Considérant l'estimateur \(\hat{\theta}_x = 3\left(\frac{1}{n}\sum_{i=1}^{n}X_i\right)\), avec \(X_i \in [-1, 1]\), 
+et \( \theta \in [-1, 1] \), 
+l'espace image de $\hat{\theta}_x$ est $[-3, 3]$, 
+couvre et dépasse l'intervalle de $\theta$. 
+Cela indique que $\hat{\theta}_x$ peut générer des estimations 
+au-delà des valeurs réelles possibles de $\theta$.
+
+Définissons la valeur ajustée $\hat{\theta}_{x}^{adj} $ comme suit :
+\begin{equation*}
+\hat{\theta}_{x}^{adj} = \max(\min(\hat{\theta}_x, 1), -1)
+\end{equation*}
+Cette formule, par l'application d'abord du minimum entre $ \hat{\theta}_x $ et 1, 
+puis du maximum entre ce résultat et -1, 
+garantit que quelle que soit la valeur initiale de $ \hat{\theta}_x $, 
+la valeur ajustée $\hat{\theta}_{x}^{adj} $ restera toujours dans l'intervalle autorisé $[-1, 1] $.
+
+Examinons les différents cas où cette méthode d'ajustement s'avère nécessaire :
+
+\textit{Cas 1} : Si $ \hat{\theta}_x > 1 $, 
+cela signifie que la valeur estimée dépasse la limite supérieure de l'intervalle autorisé. Dans ce cas, 
+l'ajustement est réalisé en fixant $ \hat{\theta}_{x}^{adj} $ à 1, la limite supérieure, 
+pour assurer que la valeur ajustée ne dépasse pas cette limite.
+
+\textit{Cas 2} : Si $ \hat{\theta}_x < -1 $, la valeur estimée est inférieure à la limite inférieure de l'intervalle autorisé.
+L'ajustement consiste alors à définir $ \hat{\theta}_{x}^{adj} $ à -1, 
+garantissant ainsi que la valeur ajustée ne tombe pas en dessous de cette limite.
+
+\textit{Cas 3} : Lorsque $ \hat{\theta}_x $ se trouve déjà dans l'intervalle $[-1, 1]$, 
+aucun ajustement n'est nécessaire, et la valeur de \( \hat{\theta}_{x}^{adj} \) est simplement égale à $\hat{\theta}_x$, 
+reflétant fidèlement l'estimation initiale sans modification.
+
+En résumé, cette approche d'ajustement garantit que les estimations demeurent toujours dans les bornes définies par l'espace paramétrique,
+assurant ainsi la cohérence et la validité des valeurs estimées par rapport aux limites prédéfinies du modèle.
+
+
+
+\end{CJK*}
+\end{document}
 
 \end{CJK*}
 \end{document}
