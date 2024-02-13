@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.20)  13 FEB 2024 02:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.20)  13 FEB 2024 02:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1013,8 +1013,7 @@ Package: amsthm 2020/05/29 v2.20.6
 LaTeX Font Info:    Trying to load font information for T1+ptm on input line 194.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
-)
-No file inference_devoir_2.aux.
+) (./inference_devoir_2.aux)
 \openout1 = `inference_devoir_2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 194.
@@ -1101,7 +1100,7 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 194.
 LaTeX Font Info:    ... okay on input line 194.
 LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 194.
 LaTeX Font Info:    Trying to load font information for LGR+cmr on input line 194.
-(/usr/local/texlive/2023/texmf-dist/tex/latex/cbfonts-fd/lgrcmr.fd
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/cbfonts-fd/lgrcmr.fd
 File: lgrcmr.fd 2017/07/29 v1.2 Greek European Computer Regular
 )
 LaTeX Font Info:    ... okay on input line 194.
@@ -1141,10 +1140,11 @@ LaTeX Font Info:    ... okay on input line 194.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package hyperref Info: Link coloring OFF on input line 194.
+(./inference_devoir_2.out) (./inference_devoir_2.out)
 \@outlinefile=\write4
 \openout4 = `inference_devoir_2.out'.
 
-(/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+ (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count325
 \scratchdimen=\dimen287
@@ -1219,18 +1219,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [3] (./inference_devoir_2.aux)
-
-Package rerunfilecheck Warning: File `inference_devoir_2.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `inference_devoir_2.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
+Package rerunfilecheck Info: File `inference_devoir_2.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 30352 strings out of 476025
- 559885 string characters out of 5790016
+ 30358 strings out of 476025
+ 560023 string characters out of 5790016
  1866388 words of memory out of 5000000
  50268 multiletter control sequences out of 15000+600000
  542111 words of font info for 78 fonts, out of 8000000 for 9000
