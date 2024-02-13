@@ -18,7 +18,14 @@ Introduisons le nouveau paramètre $\eta = \theta - \frac{x_1 + x_2}{2}$ et $y =
 
 En remplaçant $\theta$ par $\eta$ dans la fonction de vraisemblance :
 \begin{equation*}
-L(\eta) =\frac{1}{\pi^2} \cdot \frac{1}{1 + (y - \eta)^2} \cdot \frac{1}{1 + (y + \eta)^2}
+L(\eta) =\frac{1}{\pi^2} \cdot \frac{1}{1 + (y - \eta)^2} \cdot \frac{1}{1 + (y + \eta)^2} = \frac{1}{\pi^2 \left[(\eta^2 + 1 - y^2)^2 + 4y^2\right]}
 \end{equation*}
+Trouver la valeur minimale de \(\eta^2 + 1 - y^2\) permet de déterminer la valeur maximale de \(L(\eta)\).
+On conclut que lorsque \(\eta = \pm \sqrt{y^2 - 1}\), \(L(\theta)\) atteint sa valeur maximale.
+Donc on peut calculer l’extimateur de $\theta$, $\hat{\theta}$ :
+\begin{equation*}
+\hat{\theta} = \pm \sqrt{\left[\frac{(x_1 - x_2)^2 - 4}{4}\right]} + \frac{x_1 + x_2}{2}
+\end{equation*}
+
 \end{CJK*}
 \end{document}
