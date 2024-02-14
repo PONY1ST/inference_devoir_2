@@ -16,14 +16,12 @@ Montrez que l'estimateur de maximum de vraisemblance de $\theta$ existe et se tr
 dans l'intervalle $[x_{(1)}, x_{(n)}]$.
 
 \paragraph{Solution}
-L'estimateur du maximum de vraisemblance $\theta_{\text{MLE}}$ est la valeur de $\theta$ qui 
-maximise la fonction de vraisemblance $L(\theta) = \prod_{i=1}^{n} g(|x_i - \theta|)$, avec 
-$g$ étant une fonction continue et décroissante. La propriété de décroissance de $g$ entraîne 
-que $L(\theta)$ est maximisée lorsque $\theta$ se situe au plus proche des $x_i$, et en 
-considérant l'ensemble des observations dans l'intervalle compact $[x_{(1)}, x_{(n)}]$, 
-$L(\theta)$ atteindra nécessairement son maximum dans cet intervalle d'après le théorème 
-des valeurs extrêmes. Par conséquent, $\theta_{\text{MLE}}$ doit exister à l'intérieur de 
-$[x_{(1)}, x_{(n)}]$.
+Écrire $L(\theta) = \prod_{i=1}^{n} g(|x_i - \theta|)$.
+Comme $[x_{(1)}, x_{(n)}]$ est compacte et compositions de fonctions continues sont continues,
+on voit que $\argmax_{\theta \in [x_{(1)}, x_{(n)}]} L(\theta) \neq \emptyset$.
+Tout $\hat{\theta} \in \argmax_{\theta \in [x_{(1)}, x_{(n)}]} L(\theta)$ est un estimateur de maximum de vraisemblance de $\theta$
+parce que $L(\theta) \leqslant L(x_{(1)})$ pour tout $\theta < x_{(1)}$ 
+et $L(\theta) \leqslant L(x_{(n)})$ pour tout $\theta > x_{(n)}$. ////
 
 \end{CJK*}
 \end{document}

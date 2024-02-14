@@ -9,23 +9,35 @@ On a un échantillon de taille $2$ de $\text{Cauchy}(\theta, 1)$, où le centre 
 Estimer $\theta$ selon la méthode du maximum de vraisemblance. 
 
 \paragraph{Solution}
-La fonction de vraisemblance pour deux variables aléatoires indépendantes $X_1, X_2$ est :
+Étant observé $x_1$ et $x_2$,
+la fonction de vraisemblance $L : \mathbb{R} \to \mathbb{R}$ définie par, pour tout $\theta \in \mathbb{R}$ :
+
 \begin{equation*}
-L(\theta | x_1, x_2) = f(x_1 | \theta) \cdot f(x_2 | \theta) = \left( \frac{1}{\pi} \frac{1}{1 + (x_1 - \theta)^2} \right) \left( \frac{1}{\pi} \frac{1}{1 + (x_2 - \theta)^2} \right)
+L(\theta) = \frac{1}{\pi^2} \frac{1}{1 + (x_1 - \theta)^2} \frac{1}{1 + (x_2 - \theta)^2} 
 \end{equation*}
 
-Introduisons le nouveau paramètre $\eta = \theta - \frac{x_1 + x_2}{2}$ et $y = \frac{x_1}{2} - \frac{x_2}{2} $, ce qui implique :
+Définir $\eta = \theta - \frac{x_1 + x_2}{2}$ et $y = \frac{x_1}{2} - \frac{x_2}{2} $.
+Il s'agit de minimiser le dénominateur parmi tout $\eta \in \mathbb{R}$, qui est :
 
-En remplaçant $\theta$ par $\eta$ dans la fonction de vraisemblance :
 \begin{equation*}
-L(\eta) =\frac{1}{\pi^2} \cdot \frac{1}{1 + (y - \eta)^2} \cdot \frac{1}{1 + (y + \eta)^2} = \frac{1}{\pi^2 \left[(\eta^2 + 1 - y^2)^2 + 4y^2\right]}
+    \pi^2 \squared{(\eta^2 + 1 - y^2)^2 - (1-y^2)^2 + (y^2+1)^2}^2
 \end{equation*}
-Trouver la valeur minimale de \(\eta^2 + 1 - y^2\) permet de déterminer la valeur maximale de \(L(\eta)\).
-On conclut que lorsque \(\eta = \pm \sqrt{y^2 - 1}\), \(L(\theta)\) atteint sa valeur maximale.
-Donc on peut calculer l’extimateur de $\theta$, $\hat{\theta}$ :
+
+Si $y^2 \geqslant 1$, on voit immédiatement que $\eta = \pm \sqrt{y^2 - 1}$ est le minimum global.
+Si $y^2 < 1$, le développement de dénominateur est un polynôme de $\eta^2$ avec des coefficients positifs
+et $\eta = 0$ est le minimum global. Alors, 
+l'estimateur de maximum de vraisemblance de $\theta$, $\hat{\theta}$, est :
+
 \begin{equation*}
-\hat{\theta} = \pm \sqrt{\left[\frac{(x_1 - x_2)^2 - 4}{4}\right]} + \frac{x_1 + x_2}{2}
+    \hat{\theta} = 
+    \begin{cases}
+        \frac{x_1 + x_2}{2} \tab[10.1cm] \bracket{\frac{x_1-x_2}{2}}^2 \leqslant 1 \\
+        \sqrt{\squared{\frac{x_1-x_2}{2}}^2 - 1} + \frac{x_1 + x_2}{2} 
+        \text{ou} -\sqrt{\squared{\frac{x_1-x_2}{2}}^2 - 1} + \frac{x_1 + x_2}{2} \tab[2cm] \bracket{\frac{x_1-x_2}{2}}^2 > 1
+    \end{cases}
 \end{equation*}
+
+Le calcul est complet. ////
 
 \end{CJK*}
 \end{document}
